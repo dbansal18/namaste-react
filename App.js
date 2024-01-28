@@ -1,17 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// React.createElement => ReactElement-JS object => HTMLElement(render)
+// const header = React.createElement("h1", {id: "heading"}, "Namaste React");
 
-const parent = React.createElement('div', { id: "parent" }, [
-    React.createElement('div', { id: "child1" }, [
-        React.createElement('h1', { id: "heading" }, 'Hello World!'),
-        React.createElement('h2', { id: "subHeading" }, 'I am React!')
-    ]),
-    React.createElement('div', { id: "child2" }, [
-        React.createElement('h1', { id: "heading" }, 'Hello World!'),
-        React.createElement('h2', { id: "subHeading" }, 'I am React!')
-    ]),
-]);
+// JSX is transpiled before it reaches the JS engine. Transpilation is done by Babel under Parcel.
+// JSX => React.createElement => ReactElement-JS object => HTMLElement(render)
+const headerJsx = <h1 id="heading">Namaste React by JSX</h1>
+
+const HeadingComponent = () => (
+    <div>
+        {headerJsx}
+    </div>
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(parent);
+root.render(<HeadingComponent />);
